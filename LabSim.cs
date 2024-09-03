@@ -16,10 +16,7 @@ namespace Labirintus
         public void AdatsorokBeolvasasa(string forras)
         {
             using StreamReader sr = new(@$"..\..\..\src\{forras}");
-            while (!sr.EndOfStream)
-            {
-                adatsorok.Add(sr.ReadLine());
-            }
+            while (!sr.EndOfStream)adatsorok.Add(sr.ReadLine());
         }
 
         public LabSim(string fileName)
