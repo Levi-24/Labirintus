@@ -47,7 +47,25 @@ namespace Labirintus
 
         public void Utkereses()
         {
-
+            KeresesKesz = false;
+            NincsMegoldas = false;
+            int sor = 1;
+            int oszlop = 0;
+            while (!KeresesKesz && !NincsMegoldas)
+            {
+                lab[sor, oszlop] = 'O';
+                if (lab[sor, oszlop + 1] == ' ') oszlop++;
+                else if (lab[sor + 1, oszlop] == ' ') sor++;
+                else
+                {
+                    lab[sor, oszlop] = '-';
+                    if (lab[sor, oszlop - 1] == 'O') oszlop--;
+                    else sor--;
+                }
+                KeresesKesz = sor == KijaratSorIndex && oszlop == KijaratOszlopIndex;
+                if (KeresesKesz) lab[sor, oszlop] = 'O';
+                NincsMegoldas = sor == 1 && oszlop == 0;
+            }
         }
     }
 }

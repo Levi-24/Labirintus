@@ -10,3 +10,7 @@ Console.WriteLine($"\tKijárat indexe: {labSim.KijaratSorIndex}, {labSim.Kijarat
 
 Console.WriteLine($"\n6.Feladat: Labirintus megjelenitese:");
 labSim.LabKiiras();
+
+Console.WriteLine();
+labSim.Utkereses();
+labSim.LabKiiras();
