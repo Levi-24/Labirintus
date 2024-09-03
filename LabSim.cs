@@ -32,9 +32,14 @@ namespace Labirintus
 
         public void LabKiiras()
         {
-            foreach (var item in adatsorok)
+            for (int s = 0; s < adatsorok.Count; s++)
             {
-                Console.WriteLine(item);
+                for (int o = 0; o < adatsorok[s].Length; o++)
+                {
+
+                    Console.Write(lab[s, o]);
+                }
+                Console.WriteLine();
             }
         }
 
@@ -62,10 +67,16 @@ namespace Labirintus
                     if (lab[sor, oszlop - 1] == 'O') oszlop--;
                     else sor--;
                 }
+
                 KeresesKesz = sor == KijaratSorIndex && oszlop == KijaratOszlopIndex;
                 if (KeresesKesz) lab[sor, oszlop] = 'O';
                 NincsMegoldas = sor == 1 && oszlop == 0;
+
+                Thread.Sleep(50);
+                Console.Clear();
+                LabKiiras();
             }
+            Console.WriteLine(NincsMegoldas? "Nincs megoldás" : "Van megoldás");
         }
     }
 }
