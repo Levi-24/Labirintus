@@ -13,13 +13,13 @@ namespace Labirintus
         public int KijaratOszlopIndex => OszlopokSzama - 1;
         public int KijaratSorIndex => SorokSzama - 2;
 
-        public void AdatsorokBeolvasasa(string forras)
+        private void AdatsorokBeolvasasa(string forras)
         {
             using StreamReader sr = new(@$"..\..\..\src\{forras}");
             while (!sr.EndOfStream)adatsorok.Add(sr.ReadLine());
         }
 
-        public void LabFeltoltese()
+        private void LabFeltoltese()
         {
             for (int s = 0; s < adatsorok.Count; s++)
             {
@@ -30,11 +30,24 @@ namespace Labirintus
             }
         }
 
+        public void LabKiiras()
+        {
+            foreach (var item in adatsorok)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
         public LabSim(string fileName)
         {
             AdatsorokBeolvasasa(fileName);
             lab = new char[SorokSzama,OszlopokSzama];
             LabFeltoltese();
+        }
+
+        public void Utkereses()
+        {
+
         }
     }
 }
